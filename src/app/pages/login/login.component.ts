@@ -5,6 +5,7 @@ import { IUser } from 'src/app/interfaces/user';
 import { Router } from '@angular/router'
 import { BasePageComponent } from '../base-page';
 import { HttpService } from '../../services/http/http.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginComponent extends BasePageComponent implements OnInit, OnDestr
   returnUrl: String;
   users: IUser[];
   //changes: boolean = false;
-  constructor(private fb: FormBuilder, httpService: HttpService, private router: Router) {
+  constructor(private fb: FormBuilder, httpService: HttpService, private router: Router, private toastr: ToastrService) {
     //this.changes = false;
     super(httpService);
     this.users = [];
@@ -54,6 +55,9 @@ export class LoginComponent extends BasePageComponent implements OnInit, OnDestr
           setTimeout(() => {
             this.router.navigate([this.returnUrl]);
           }, 200);
+        }
+        else {
+          this.toastr.error('Credenciales incorrectas!', 'El usuario y la contraseña no coinciden!');
         }
       });
 

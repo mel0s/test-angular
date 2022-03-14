@@ -24,7 +24,6 @@ export class BasePageComponent implements OnInit, OnDestroy {
         this.httpSv.getData(url).subscribe(
             {
                 next: (data) => {
-                    //this[dataName] = data;
                     subject.next(data);
                 },
                 error: (e) => console.error(e),
