@@ -41,23 +41,21 @@ export class LoginComponent extends BasePageComponent implements OnInit, OnDestr
 
   login(form: FormGroup) {
 
-    console.log(form.value);
     if (form.valid) {
+      this.loginInfo = form.value;
 
       this.getData('assets/data/users.json', 'users').subscribe(items => {
         this.users = items;
-        console.log("Encadenado xD")
+        let user = this.users.find(u => u.user === this.loginInfo.user && u.password == this.loginInfo.password)
+
+        if (user) {
+          localStorage.setItem('test.isLoggedIn', "true");
+          localStorage.setItem('test.email', user.email);
+          setTimeout(() => {
+            this.router.navigate([this.returnUrl]);
+          }, 200);
+        }
       });
-
-      console.log(this.users);
-      this.loginInfo = form.value;
-
-      localStorage.setItem('test.isLoggedIn', "true");
-
-
-      // setTimeout(() => {
-      //   this.router.navigate([this.returnUrl]);
-      // }, 200);
 
     }
   }
