@@ -1,0 +1,16 @@
+[
+    {
+        "user": "oswaldo",
+        "email": "oswaldosanchezmelos@gmail.com",
+        "name": "Oswaldo",
+        "lastname": "Sanchez Melos",
+        "password": "os0malito"
+    },
+    {
+        "user": "desarrollo",
+        "name": "Desarrollo",
+        "email": "desarrollo@desarrllo.com",
+        "lastname": "Desarrollo",
+        "password": "d3arroyo"
+    }
+]

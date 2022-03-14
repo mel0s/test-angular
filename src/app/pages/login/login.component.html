@@ -23,23 +23,26 @@
           <div class="text-center text-muted mb-4">
             <small>Ingrese sus credencialaes</small>
           </div>
-          <form novalidate [formGroup]="loginForm" (ngSubmit)="login(loginForm)" role="form">
+          <form [formGroup]="loginForm" (ngSubmit)="login(loginForm)" role="form">
             <div class="form-group mb-3">
               <div class="input-group input-group-alternative">
                 <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="ni ni-email-83"></i></span>
+                  <span class="input-group-text"><i class="ni ni-satisfied"></i></span>
                 </div>
-                <input class="form-control" formControlName="email" placeholder="Email" type="email">
+                <input class="form-control" matInput formControlName="user" placeholder="Usuario" type="text">
               </div>
             </div>
+            <!--Usuario-->
             <div class="form-group">
               <div class="input-group input-group-alternative">
                 <div class="input-group-prepend">
                   <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                 </div>
-                <input class="form-control" formControlName="password" placeholder="Clave" type="password">
+                <input matInput class="form-control" formControlName="password" placeholder="Clave" type="password">
               </div>
             </div>
+
+            <!--Clave-->
             <div class="custom-control custom-control-alternative custom-checkbox">
               <input class="custom-control-input" id="customCheckLogin" type="checkbox">
               <label class="custom-control-label" for=" customCheckLogin">
@@ -47,7 +50,7 @@
               </label>
             </div>
             <div class="text-center">
-              <button type="button" class="btn btn-primary my-4">Ingresar</button>
+              <button [disabled]='loginForm.invalid' type="submit" class="btn btn-primary my-4">Ingresar</button>
             </div>
           </form>
         </div>
