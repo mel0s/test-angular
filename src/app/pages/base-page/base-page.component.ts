@@ -17,7 +17,7 @@ export class BasePageComponent implements OnInit, OnDestroy {
 
     ngOnDestroy() { }
 
-    getData(url: string, dataName: string): Observable<any[]> {
+    getData(url: string): Observable<any[]> {
 
         var subject = new Subject<any[]>();
 

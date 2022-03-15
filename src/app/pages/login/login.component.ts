@@ -6,6 +6,7 @@ import { Router } from '@angular/router'
 import { BasePageComponent } from '../base-page';
 import { HttpService } from '../../services/http/http.service';
 import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../../../app/services/auth/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -18,7 +19,7 @@ export class LoginComponent extends BasePageComponent implements OnInit, OnDestr
   returnUrl: String;
   users: IUser[];
   //changes: boolean = false;
-  constructor(private fb: FormBuilder, httpService: HttpService, private router: Router, private toastr: ToastrService) {
+  constructor(private fb: FormBuilder, httpService: HttpService, private router: Router, private toastr: ToastrService, private authService: AuthService) {
     //this.changes = false;
     super(httpService);
     this.users = [];
@@ -28,6 +29,7 @@ export class LoginComponent extends BasePageComponent implements OnInit, OnDestr
 
   ngOnInit() {
     this.initForm();
+    this.authService.logout();
   }
 
   initForm() {
@@ -35,8 +37,9 @@ export class LoginComponent extends BasePageComponent implements OnInit, OnDestr
       user: ['', [Validators.required, Validators.minLength(5)]],
       password: ['', [Validators.required, Validators.minLength(8)]]
     });
-    console.log('Init');
   }
+
+
   ngOnDestroy() {
   }
 
@@ -45,7 +48,7 @@ export class LoginComponent extends BasePageComponent implements OnInit, OnDestr
     if (form.valid) {
       this.loginInfo = form.value;
 
-      this.getData('assets/data/users.json', 'users').subscribe(items => {
+      this.getData('assets/data/users.json').subscribe(items => {
         this.users = items;
         let user = this.users.find(u => u.user === this.loginInfo.user && u.password == this.loginInfo.password)
 

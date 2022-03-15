@@ -4,13 +4,24 @@
         "email": "oswaldosanchezmelos@gmail.com",
         "name": "Oswaldo",
         "lastname": "Sanchez Melos",
-        "password": "os0malito"
+        "password": "os0malito",
+        "avatar": "",
+        "address": "4 pte",
+        "city": "Puebla",
+        "country": "Mexico",
+        "code": "72713",
+        "about": "Este soy yo (>oo)> :v"
     },
     {
         "user": "desarrollo",
         "name": "Desarrollo",
         "email": "desarrollo@desarrllo.com",
         "lastname": "Desarrollo",
-        "password": "d3arroyo"
+        "password": "d3arroyo",
+        "address": "1st Ave -12th Ave",
+        "city": "Nueva York",
+        "country": "USA",
+        "code": "65656",
+        "about": "Desarrollador de mi vida xD"
     }
 ]

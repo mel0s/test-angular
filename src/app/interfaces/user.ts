@@ -3,5 +3,11 @@ export interface IUser {
     name: string,
     lastname: string,
     email: string,
-    password: string
+    avatar: string,
+    address: string,
+    city: string,
+    country: string,
+    code: string,
+    password: string,
+    about: string
 }
