@@ -4,53 +4,64 @@
       <!-- Card stats -->
       <div class="row">
 
-        <div class="col-xl-12 col-lg-12">
-          <div class="Card">
+        <div class="col-lg-3 col-xs-12">
+          <div class="card">
+            <div class="card-header bg-secondary">
+              <h1 class="card-title">Filtros</h1>
+            </div>
             <div class="card-body">
-              <div class="row">
-                <div class="col-xs-12  col-lg-4">
-                  <img class="card-img-top" [src]="dishInfo.strMealThumb" alt="Card image cap">
+
+              <div class="card">
+                <div class="card-header bg-ligh">
+                  <h3 class="card-title">Categorias</h3>
                 </div>
-                <div class="col-xs-12 col-lg-8">
+                <div class="card-body">
+                  <ul class="list-group list-group-flush">
+                    <li *ngFor="let c of categories" class="list-group-item">
+                      <div class="custom-control custom-radio">
+                        <input type="radio" id="radioCategory" name="radioCategory" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadio1">Toggle this custom radio</label>
+                      </div>
+                    </li>
 
-                  <div class="card">
-                    <div class="card-header bg-secondary">
-                      <h1 class="card-title">{{dishInfo.strMeal}}</h1>
-                    </div>
-                    <div class="card-body">
+                  </ul>
 
-                      <h2 class="card-subtitle mb-2  text-center">Instrucciones</h2>
-                      <p class="card-text">{{dishInfo. strInstructions}}</p>
-
-                      <h2 class="card-subtitle mb-2  text-center">Ingredientes</h2>
-
-                      <table class="table">
-
-                        <tbody>
-                          <tr *ngFor="let z of ingredients">
-                            <th scope="row">{{z.ingredient}}</th>
-                            <th scope="row">{{z.measure}}</th>
-                          </tr>
-                        </tbody>
-                      </table>
-
-                      <div [innerHtml]="youtube"></div>
-
-
-
-                    </div>
-                  </div>
 
 
 
                 </div>
-
               </div>
 
+              <div class="card">
+                <div class="card-header bg-ligh">
+                  <h3 class="card-title">Ingredientes</h3>
+                </div>
+                <div class="card-body">
+
+
+
+                </div>
+              </div>
+
+              <div class="card">
+                <div class="card-header bg-ligh">
+                  <h3 class="card-title">Areas</h3>
+                </div>
+                <div class="card-body">
+
+
+
+                </div>
+              </div>
+
+
+
+
+
+
             </div>
-
-
           </div>
+
 
         </div>
 
