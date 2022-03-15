@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { IDish } from '../../interfaces/dish'
 import { DishService } from '../../services/dish/dish.service';
+import { Pipe, PipeTransform } from '@angular/core';
+import { DomSanitizer } from '@angular/platform-browser';
 
 
 
@@ -11,11 +13,15 @@ import { DishService } from '../../services/dish/dish.service';
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.scss']
 })
-export class DashboardComponent implements OnInit {
+
+
+
+export class DashboardComponent implements OnInit, PipeTransform {
 
   dishInfo: IDish;
   ingredients: any[];
-  constructor(private dishService: DishService) {
+  youtube: any;
+  constructor(private dishService: DishService, private sanitizer: DomSanitizer) {
     this.dishInfo = {
       "idMeal": "53033",
       "strMeal": "Japanese gohan rice",
@@ -84,6 +90,7 @@ export class DashboardComponent implements OnInit {
     this.dishService.getDishRandom().subscribe(dish => {
       this.dishInfo = dish[0];
       this.getIngredients();
+      this.transform();
 
     });
   }
@@ -101,9 +108,11 @@ export class DashboardComponent implements OnInit {
 
       }
 
-
-
     }
+  }
+
+  transform() {
+    this.youtube = this.sanitizer.bypassSecurityTrustHtml(` <iframe width="420" height="315" src="${this.dishInfo.strYoutube}"></iframe>`);
   }
 
 }

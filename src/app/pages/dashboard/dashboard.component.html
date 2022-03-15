@@ -19,8 +19,10 @@
                     </div>
                     <div class="card-body">
 
-                      <h3 class="card-subtitle mb-2 text-muted text-center">Instrucciones</h3>
+                      <h2 class="card-subtitle mb-2  text-center">Instrucciones</h2>
                       <p class="card-text">{{dishInfo. strInstructions}}</p>
+
+                      <h2 class="card-subtitle mb-2  text-center">Ingredientes</h2>
 
                       <table class="table">
 
@@ -32,8 +34,10 @@
                         </tbody>
                       </table>
 
+                      <div [innerHtml]="youtube"></div>
 
-                      <a [href]="dishInfo.strYoutube" class="card-link">Video</a>
+
+
                     </div>
                   </div>
 
