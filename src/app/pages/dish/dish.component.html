@@ -1,0 +1,61 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- Card stats -->
+      <div class="row">
+
+        <div class="col-xl-12 col-lg-12">
+          <div class="Card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-xs-12  col-lg-4">
+                  <img class="card-img-top" [src]="dishInfo.strMealThumb" alt="Card image cap">
+                </div>
+                <div class="col-xs-12 col-lg-8">
+
+                  <div class="card">
+                    <div class="card-header bg-secondary">
+                      <h1 class="card-title">{{dishInfo.strMeal}}</h1>
+                    </div>
+                    <div class="card-body">
+
+                      <h2 class="card-subtitle mb-2  text-center">Instrucciones</h2>
+                      <p class="card-text">{{dishInfo. strInstructions}}</p>
+
+                      <h2 class="card-subtitle mb-2  text-center">Ingredientes</h2>
+
+                      <table class="table">
+
+                        <tbody>
+                          <tr *ngFor="let z of ingredients">
+                            <th scope="row">{{z.ingredient}}</th>
+                            <th scope="row">{{z.measure}}</th>
+                          </tr>
+                        </tbody>
+                      </table>
+
+                      <div [innerHtml]="youtube"></div>
+
+
+
+                    </div>
+                  </div>
+
+
+
+                </div>
+
+              </div>
+
+            </div>
+
+
+          </div>
+
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+</div>
